@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>decision-service</groupId>
+        <artifactId>invoice-p2p</artifactId>
+        <version>1.0.0</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <artifactId>AccountsPayable</artifactId>
+    <packaging>decisionservice</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.ibm.rules.buildcommand</groupId>
+                <artifactId>rules-compiler-maven-plugin</artifactId>
+                <configuration>
+                    <packagingExcludes>*.jar</packagingExcludes>
+                    <deployments>
+          						<deployment>
+          							<name>P2PAPDeployment</name>
+                                    <embeddedXom>true</embeddedXom>
+          						</deployment>
+                    </deployments>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>P2PXom</artifactId>
+            <type>jar</type>
+            <version>${project.version}</version>
+            <exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+                 <exclusion>
+					<groupId>com.ibm.rules.buildcommand</groupId>
+					<artifactId>xom-annotations</artifactId>
+				</exclusion>
+                 <exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpclient</artifactId>
+				</exclusion>
+                 <exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>P2PForAccountsPayable</artifactId>
+            <type>jar</type>
+            <version>${project.version}</version>
+            <exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+                <exclusion>
+					<groupId>com.ibm.rules.buildcommand</groupId>
+					<artifactId>xom-annotations</artifactId>
+				</exclusion>
+                  <exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpclient</artifactId>
+				</exclusion>
+                 <exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>LookupDB</artifactId>
+            <type>jar</type>
+            <version>${project.version}</version>
+            <exclusions>
+				<exclusion>
+					<groupId>com.fasterxml.jackson.core</groupId>
+					<artifactId>jackson-databind</artifactId>
+				</exclusion>
+                 <exclusion>
+					<groupId>com.ibm.rules.buildcommand</groupId>
+					<artifactId>xom-annotations</artifactId>
+				</exclusion>
+                  <exclusion>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpclient</artifactId>
+				</exclusion>
+                 <exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+        </dependency>
+    </dependencies>
+
+</project>

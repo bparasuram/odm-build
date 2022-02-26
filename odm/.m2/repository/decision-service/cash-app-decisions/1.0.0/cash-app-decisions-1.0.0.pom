@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>decision-service</groupId>
+        <artifactId>cash-app</artifactId>
+        <version>1.0.0</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <artifactId>cash-app-decisions</artifactId>
+    <packaging>decisionservice</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.ibm.rules.buildcommand</groupId>
+                <artifactId>rules-compiler-maven-plugin</artifactId>
+                <configuration>
+                    <packagingExcludes>xom*.jar,jackson*.jar</packagingExcludes>
+                    <deployments>
+          						<deployment>
+          							<name>dev_cash</name>
+                                    <embeddedXom>true</embeddedXom>
+          						</deployment>
+                    </deployments>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>cash-app-xom</artifactId>
+            <type>jar</type>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>content-analyzer-xom</artifactId>
+            <type>jar</type>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>document-capture-xom</artifactId>
+            <type>jar</type>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
